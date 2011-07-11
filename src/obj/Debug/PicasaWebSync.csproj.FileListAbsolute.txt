@@ -1,0 +1,9 @@
+C:\Users\bholt.VELOCITYFUTURES\Desktop\PicasaWebSync\src\bin\Debug\picasawebsync.exe.config
+C:\Users\bholt.VELOCITYFUTURES\Desktop\PicasaWebSync\src\bin\Debug\picasawebsync.exe
+C:\Users\bholt.VELOCITYFUTURES\Desktop\PicasaWebSync\src\bin\Debug\picasawebsync.pdb
+C:\Users\bholt.VELOCITYFUTURES\Desktop\PicasaWebSync\src\bin\Debug\Google.GData.Client.dll
+C:\Users\bholt.VELOCITYFUTURES\Desktop\PicasaWebSync\src\bin\Debug\Google.GData.Extensions.dll
+C:\Users\bholt.VELOCITYFUTURES\Desktop\PicasaWebSync\src\bin\Debug\Google.GData.Photos.dll
+C:\Users\bholt.VELOCITYFUTURES\Desktop\PicasaWebSync\src\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\bholt.VELOCITYFUTURES\Desktop\PicasaWebSync\src\obj\Debug\picasawebsync.exe
+C:\Users\bholt.VELOCITYFUTURES\Desktop\PicasaWebSync\src\obj\Debug\picasawebsync.pdb
