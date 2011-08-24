@@ -70,7 +70,9 @@ namespace PicasaWebSync
                     uploader.AlbumNameFormat = ConfigurationManager.AppSettings["album.nameFormat"];
                     uploader.AlbumPrivateFileName = ConfigurationManager.AppSettings["album.privateAccess.hintFileName"];
                     if (privateAccessFolderNamesConfig != null && privateAccessFolderNamesConfig.Length > 0)
-    					uploader.AlbumPrivateFolderNames = privateAccessFolderNamesConfig.Split(',');
+                    {
+                        uploader.AlbumPrivateFolderNames = privateAccessFolderNamesConfig.Split(',');
+                    }
                     uploader.AlbumPublicFileName = ConfigurationManager.AppSettings["album.publicAccess.hintFileName"];
                     uploader.AddOnly = commandLineArgs.Contains("-addOnly");
                     uploader.VerboseOutput = commandLineArgs.Contains("-v");

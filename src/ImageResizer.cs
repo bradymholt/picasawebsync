@@ -103,7 +103,7 @@ namespace PicasaWebSync
                     }
                 }
                 
-                // For now I only tested Jpeg for Exif properties copy
+                // Copy JPEG Exif properties
     			if (originalImage.RawFormat == ImageFormat.Jpeg)
 				{
 					foreach (PropertyItem originalItem in originalImage.PropertyItems)
