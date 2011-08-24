@@ -102,6 +102,13 @@ namespace PicasaWebSync
                         resizedImage = new Bitmap(originalImage, maxWidthPixels, newHeight);
                     }
                 }
+                
+                // For now I only tested Jpeg for Exif properties copy
+    			if (originalImage.RawFormat == ImageFormat.Jpeg)
+				{
+					foreach (PropertyItem originalItem in originalImage.PropertyItems)
+						resizedImage.SetPropertyItem (originalItem);
+				}
             }
             else
             {
