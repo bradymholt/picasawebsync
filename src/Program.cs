@@ -69,7 +69,8 @@ namespace PicasaWebSync
                     uploader.ResizeVideosCommand = ConfigurationManager.AppSettings["video.resize.command"];
                     uploader.AlbumNameFormat = ConfigurationManager.AppSettings["album.nameFormat"];
                     uploader.AlbumPrivateFileName = ConfigurationManager.AppSettings["album.privateAccess.hintFileName"];
-                    uploader.AlbumPrivateFolderNames = privateAccessFolderNamesConfig.Split(',');
+                    if (privateAccessFolderNamesConfig != null && privateAccessFolderNamesConfig.Length > 0)
+    					uploader.AlbumPrivateFolderNames = privateAccessFolderNamesConfig.Split(',');
                     uploader.AlbumPublicFileName = ConfigurationManager.AppSettings["album.publicAccess.hintFileName"];
                     uploader.AddOnly = commandLineArgs.Contains("-addOnly");
                     uploader.VerboseOutput = commandLineArgs.Contains("-v");
