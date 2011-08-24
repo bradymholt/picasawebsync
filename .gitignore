@@ -1,3 +1,5 @@
 src/bin/*
 src/obj/*
-src/*.suo*
+*.suo
+*.pdb
+*vshost*
