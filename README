@@ -5,6 +5,25 @@ Version: 1.1
 Release Date: July 5th, 2011
 -----------------------------------------
 
+Installation and Usage
+----------------------
+
+To install and use picasawebsync:
+
+    1. Extract the contents of the /bin folder into a directory 
+	2. Modify the picasawebsync.exe.config file and update the values for the picasa.username and picasa.password
+	   settings to match your Google username and Password.
+	3. Run the main executable 'picasawebsync.exe' with command line paremters and options.  
+	   To see a list of available command line options run 'picasawebsync.exe -help'.
+
+           Example usage:
+
+           picasawebsync.exe "C:\Users\Public\Pictures\My Pictures\" -r -v
+
+
+Note: PicasaWebSync Requires Microsoft .NET Framework 3.5
+
+
 Package Directories:
 -------------------
 
