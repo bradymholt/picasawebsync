@@ -24,6 +24,14 @@ To install and use picasawebsync:
 
            picasawebsync.exe "C:\Users\Public\Pictures\My Pictures\" -r -v
 
+Video Resizing
+---
+By default, video resizing is disabled (key="video.resize" value="false" in picasawebsync.exe.config) but to enable it you should 
+install a command-line utility that can handle video resizing and specify the command-line in the video.resize.command config value in
+picasawebsync.exe.config.  I highly recommend installing and utilizing FFmpeg (http://www.ffmpeg.org/) for video resizing.  Make sure the 
+video.resize.command setting contains the path to the ffmpeg executable or your PATH environment include the directory where this executable
+resizes so that PicasaWebSync can locate it at runtime.
+
 Hint Files
 ---
 Hint files can be placed in local folders which will instruct PicasaWebSync to mark an album with Public / Private access or exclude
