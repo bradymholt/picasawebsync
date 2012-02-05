@@ -1,12 +1,10 @@
 # PicasaWebSync
-Description: A command line tool to resize and upload pictures and videos into Picasa Web Albums.
-Author: Brady Holt (http://www.GeekyTidBits.com)
-Version: 1.1
-Release Date: July 5th, 2011
------------------------------------------
+A command line tool to resize and upload pictures and videos into Picasa Web Albums.
+- Author: Brady Holt (http://www.GeekyTidBits.com)
+---
 
 Installation and Usage
-----------------------
+---
 
 To install and use picasawebsync:
 
@@ -21,11 +19,8 @@ To install and use picasawebsync:
            picasawebsync.exe "C:\Users\Public\Pictures\My Pictures\" -r -v
 
 
-Note: PicasaWebSync Requires Microsoft .NET Framework 3.5
-
-
-Package Directories:
--------------------
+Repository Directories
+---
 
 bin:
     Contains main executable 'picasawebsync.exe' along with other required runtime files/assemblies.
@@ -45,12 +40,12 @@ hint_files:
     for more information.
 
 
-Hint Files:
--------------------
+Hint Files
+---
 Hint files can be placed in local folders which will instruct PicasaWebSync to mark an album with Public / Private access or exclude
 the folder entirely from being uploaded.  Refer to the /hint_files for sample files.  The hint files do not have to have any contents.
 
 
-Requirements:
--------------------
+Requirements
+---
 Microsoft .NET Framework 3.5.
