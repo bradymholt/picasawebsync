@@ -7,13 +7,20 @@ Installation and Usage
 
 To install and use picasawebsync:
 
-    1. Obtain a build.  Either download the source of this repository and build from solution src/PicasaWebSync 
-    or download the latest release from <a href="https://github.com/bradyholt/PicasaWebSync/downloads">Downloads</a> page.
-    Extract the contents of the /bin folder into a directory 
-	2. Modify the picasawebsync.exe.config file and update the values for the picasa.username and picasa.password
-	   settings to match your Google username and Password.
-	3. Run the main executable 'picasawebsync.exe' with command line paremters and options.  
+    1. Obtain a build.  Either download the source of this repository and build the solution (src/PicasaWebSync.sln) 
+       or download the latest release from <a href="https://github.com/bradyholt/PicasaWebSync/downloads">Downloads</a> page.
+    2. Place the build output into a dedicated directory. 
+    3. Modify the picasawebsync.exe.config file and update the values for the picasa.username and picasa.password 
+       settings to match your Google username and Password.
+    4. Run the main executable *picasawebsync.exe* with appropriate command line paremters and options.  
 	   To see a list of available command line options run 'picasawebsync.exe -help'.
+	   
+	   Options:
+		   -r,                 recursive (include subfolders)
+		   -emptyAlbumFirst    delete all images in album before adding photos
+		   -addOnly            add only and do not remove anything from online albums (overrides -emptyAlbumFirst)");
+		   -v,                 verbose output
+		   -help               print help menu
 
            Example usage:
 
