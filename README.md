@@ -19,8 +19,7 @@ To install and use picasawebsync:
 		   -v,                 verbose output
 		   -help               print help menu
 
-    Example usage:  
-    picasawebsync.exe "C:\Users\Public\Pictures\My Pictures\" -r -v
+	Example usage:  picasawebsync.exe "C:\Users\Public\Pictures\My Pictures\" -r -v
 
 
 Repository Directories
