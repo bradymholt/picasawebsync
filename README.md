@@ -1,5 +1,5 @@
 # PicasaWebSync
-A command line tool to resize and upload pictures and videos into Picasa Web Albums.
+A command line tool to resize and upload pictures and videos into Picasa Web Albums.  
 Author: Brady Holt (http://www.GeekyTidBits.com)
 
 Installation and Usage
