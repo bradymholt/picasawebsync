@@ -1,6 +1,22 @@
 # PicasaWebSync
 A command line tool to resize and upload pictures and videos into Picasa Web Albums.  
 Author: Brady Holt (http://www.GeekyTidBits.com)
+License: The MIT License (MIT) (http://www.opensource.org/licenses/mit-license.php)
+
+Overview
+---
+PicasaWebSync is a command-line tool to synchronize local photos and videos to online Picasa Web Albums. It is flexible with a configuration file / run-time options and optionally resizes* photos before uploading them.
+
+**Features**
+
+- Resizes photos before uploading.
+- Resizes videos before uploading (requires external tool like ffmpeg).
+- Allows folders to be excluded by name or hint file included in folder.
+- Allows album access (i.e. Public / Private) to be set by hint files in source folders.
+- Allows excluding files over a specified size.
+- Removes photos/videos/albums from Picasa Web Albums that have been removed locally (can prevent this with -addOnly command line option)
+- Updates files on Picasa which have been updated locally since the last time they were uploaded.
+- Supports these file types: jpg, jpeg, gif, tiff, tif, png, bmp, avi, wmv, mpg, asf, mov, mp4
 
 Installation and Usage
 ---
