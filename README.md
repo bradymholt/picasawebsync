@@ -1,6 +1,6 @@
 # PicasaWebSync
 A command line tool to resize and upload pictures and videos into Picasa Web Albums.  
-Author: Brady Holt (http://www.GeekyTidBits.com)
+Author: Brady Holt (http://www.GeekyTidBits.com)  
 License: The MIT License (MIT) (http://www.opensource.org/licenses/mit-license.php)
 
 Overview
@@ -62,4 +62,8 @@ the folder entirely from being uploaded.  Refer to the /hint_files for sample fi
 
 Requirements
 ---
-Microsoft .NET Framework 3.5.
+**Windows**  
+.NET Framework 3.5 (Windows 7, Windows Vista, Windows Server 2008, Windows XP, Windows Server 2003)
+
+**Linux**  
+Mono version supporting .NET Framework 3.5
