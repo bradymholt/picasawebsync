@@ -62,4 +62,8 @@ the folder entirely from being uploaded.  Refer to the /hint_files for sample fi
 
 Requirements
 ---
-Microsoft .NET Framework 3.5.
+**Windows**  
+.NET Framework 3.5 (Windows 7, Windows Vista, Windows Server 2008, Windows XP, Windows Server 2003)
+
+**Linux**  
+Mono version supporting .NET Framework 3.5
