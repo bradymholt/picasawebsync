@@ -28,7 +28,7 @@ To install and use picasawebsync:
 3. Modify the picasawebsync.exe.config file and update the values for the picasa.username and picasa.password settings to match your Google username and Password.
 4. Run the main executable **picasawebsync.exe** with appropriate command line paremters and options.  To see a list of available command line options run 'picasawebsync.exe -help'.
 
-**Usage**
+**Usage**  
 
 		picasawebsync.exe folderPath [options]
                                                
