@@ -27,9 +27,14 @@ To install and use picasawebsync:
 2. Place the build output into a dedicated directory. 
 3. Modify the picasawebsync.exe.config file and update the values for the picasa.username and picasa.password settings to match your Google username and Password.
 4. Run the main executable **picasawebsync.exe** with appropriate command line paremters and options.  To see a list of available command line options run 'picasawebsync.exe -help'.
+
+**Usage** 
+picasawebsync.exe folderPath [options]
                                                
 **Options**
 
+		-u:USERNAME,        Picasa Username (can also be specified in picasawebsync.exe.config)
+		-p:PASSWORD,        Picasa Password (can also be specified in picasawebsync.exe.config)
 		-r,                 recursive (include subfolders)
 		-emptyAlbumFirst    delete all images in album before adding photos
 		-addOnly            add only and do not remove anything from online albums (overrides -emptyAlbumFirst)");
@@ -38,7 +43,7 @@ To install and use picasawebsync:
 	
 **Example Usage**
 
-		picasawebsync.exe "C:\Users\Public\Pictures\My Pictures\" -r -v
+		picasawebsync.exe "C:\Users\Public\Pictures\My Pictures\" -u:john.doe@gmail.com -p:Secr@tPwd -r -v
 
 
 Repository Directories

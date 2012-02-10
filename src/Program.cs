@@ -32,6 +32,8 @@ namespace PicasaWebSync
                 Console.WriteLine("   picasawebsync.exe \"C:\\Users\\Public\\Pictures\\My Pictures\\\" -r -v");
                 Console.WriteLine();
                 Console.WriteLine("Options:");
+                Console.WriteLine("   -u:USERNAME,        Picasa Username (can also be specified in picasawebsync.exe.config)");
+                Console.WriteLine("   -p:PASSWORD,        Picasa Password (can also be specified in picasawebsync.exe.config)");
                 Console.WriteLine("   -r,                 recursive (include subfolders)");
                 Console.WriteLine("   -emptyAlbumFirst,   delete all images in album before adding photos");
                 Console.WriteLine("   -addOnly,           add only and do not remove anything from online albums (overrides -emptyAlbumFirst)");
@@ -53,7 +55,19 @@ namespace PicasaWebSync
                     string privateAccessFolderNamesConfig = ConfigurationManager.AppSettings["album.privateAccess.folderNames"];
 
                     uploader.PicasaUsername = ConfigurationManager.AppSettings["picasa.username"];
+                    if (commandLineArgs.Contains("-u:"))
+                    {
+                        int startIndex = commandLineArgs.IndexOf("-u:") + 3;
+                        uploader.PicasaUsername = commandLineArgs.Substring(startIndex, commandLineArgs.IndexOf(" ", startIndex + 1) - startIndex);
+                    }
+
                     uploader.PicasaPassword = ConfigurationManager.AppSettings["picasa.password"];
+                    if (commandLineArgs.Contains("-p:"))
+                    {
+                        int startIndex = commandLineArgs.IndexOf("-p:") + 3;
+                        uploader.PicasaPassword = commandLineArgs.Substring(startIndex, commandLineArgs.IndexOf(" ", startIndex + 1) - startIndex);
+                    }
+
                     uploader.AlbumAccess = (AlbumAccessEnum)Enum.Parse(typeof(AlbumAccessEnum), ConfigurationManager.AppSettings["album.access.default"], true);
                     uploader.IncludeSubFolders = commandLineArgs.Contains("-r");
                     uploader.ClearAlbumPhotosFirst = commandLineArgs.Contains("-emptyAlbumFirst");
