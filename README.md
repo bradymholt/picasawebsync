@@ -29,6 +29,7 @@ To install and use picasawebsync:
 4. Run the main executable **picasawebsync.exe** with appropriate command line paremters and options.  To see a list of available command line options run 'picasawebsync.exe -help'.
 
 **Usage**  
+
 		picasawebsync.exe folderPath [options]
                                                
 **Options**
