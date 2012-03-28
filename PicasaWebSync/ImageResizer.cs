@@ -28,6 +28,7 @@ namespace PicasaWebSync
 
             try
             {
+                originalImage = new Bitmap(originalImageStream);
                 resizedImage = ResizeImage(ref originalImage, maxSizePixels, maxSizePixels);
 
                 resizedImageStream = new MemoryStream();
@@ -70,10 +71,10 @@ namespace PicasaWebSync
         {
             Bitmap resizedImage = null;
 
-            //make sure resize is needed first
-            if (originalImage.Width > maxWidthPixels || originalImage.Height > maxHeightPixels)
+            try
             {
-                try
+                //make sure resize is needed first
+                if (originalImage.Width > maxWidthPixels || originalImage.Height > maxHeightPixels)
                 {
                     // properly constrain proportions of the image
                     decimal imgRatio = (decimal)originalImage.Width / (decimal)originalImage.Height;
@@ -124,16 +125,16 @@ namespace PicasaWebSync
                             resizedImage.SetPropertyItem(originalItem);
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    s_logger.ErrorException("Error when resizing image", ex);
-                    throw;
+                    // return original because it is is already smaller than maxWidth / maxHeight
+                    resizedImage = new Bitmap(originalImage);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                // return original because it is is already smaller than maxWidth / maxHeight
-                resizedImage = new Bitmap(originalImage);
+                s_logger.ErrorException("Error when resizing image", ex);
+                throw;
             }
 
             return resizedImage;

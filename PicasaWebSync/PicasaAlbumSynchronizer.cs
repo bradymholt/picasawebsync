@@ -406,7 +406,7 @@ namespace PicasaWebSync
                     {
                         if (isVideo && this.ResizeVideos)
                         {
-                            WriteOutput(string.Concat("Resizing Video: ", sourceFile.Name), true);
+                            WriteOutput(string.Concat("Resizing Video: ", sourceFile.FullName), true);
                             string resizedVideoPath = VideoResizer.ResizeVideo(sourceFile, this.ResizeVideosCommand);
                             //change souceFilePath to resized video file location
                             souceFilePath = resizedVideoPath;
@@ -418,11 +418,11 @@ namespace PicasaWebSync
 
                             if (isImage && this.ResizePhotos)
                             {
-                                WriteOutput(string.Concat("Resizing Photo: ", sourceFile.Name), true);
+                                WriteOutput(string.Concat("Resizing Photo: ", sourceFile.FullName), true);
                                 postFileStream = ImageResizer.ResizeImage(postFileStream, imageFormat, this.ResizePhotosMaxSize);
                             }
 
-                            WriteOutput(string.Format("Uploading File: {0}", sourceFile.Name), true);
+                            WriteOutput(string.Format("Uploading File: {0}", sourceFile.FullName), true);
                             Uri insertPhotoFeedUri = new Uri(PicasaQuery.CreatePicasaUri(this.PicasaUsername, targetAlbum.Id));
 
                             PhotoEntry newFileEntry = new PhotoEntry();
