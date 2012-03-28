@@ -11,6 +11,7 @@ using Google.Picasa;
 using System.Net;
 using System.Xml;
 using System.Net.Sockets;
+using NLog;
 
 namespace PicasaWebSync
 {
@@ -19,6 +20,8 @@ namespace PicasaWebSync
     /// </summary>
     public class PicasaAlbumSynchronizer
     {
+        private static Logger s_logger = LogManager.GetLogger("*");
+
         #region Constructor
         public PicasaAlbumSynchronizer()
         {
@@ -481,7 +484,7 @@ namespace PicasaWebSync
         /// /// <param name="isImage">Indicates of file is an image.</param>
         /// <param name="imageFormat">GDI Image format (Out)</param>
         /// <param name="imageContentType">MIME content type (Out)</param>
-        private void GetFileInfo(FileInfo file, out bool isImage, out bool isVideo, out ImageFormat imageFormat, out string contentType)
+        public static void GetFileInfo(FileInfo file, out bool isImage, out bool isVideo, out ImageFormat imageFormat, out string contentType)
         {
             imageFormat = null;
             contentType = null;
@@ -532,11 +535,11 @@ namespace PicasaWebSync
         {
             if (!verboseOnly || this.VerboseOutput)
             {
-                Console.WriteLine(message);
+                s_logger.Info(message);
             }
             else
             {
-                Console.Write(".");
+                s_logger.Info(".");
             }
         }
         #endregion

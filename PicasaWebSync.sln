@@ -1,14 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicasaWebSync", "src\PicasaWebSync.csproj", "{FA52900F-C95A-44BA-A346-E202E98A1276}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{354C52AA-24C2-4F41-8C91-01C3FC5D6060}"
 	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		PicasaWebSync.vsmdi = PicasaWebSync.vsmdi
 		README.md = README.md
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicasaWebSync", "PicasaWebSync\PicasaWebSync.csproj", "{FA52900F-C95A-44BA-A346-E202E98A1276}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicasaWebSync.Test", "PicasaWebSync.Test\PicasaWebSync.Test.csproj", "{E1E386A3-8CD6-4A7B-836D-11D8F69093EA}"
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = PicasaWebSync.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -18,6 +26,10 @@ Global
 		{FA52900F-C95A-44BA-A346-E202E98A1276}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA52900F-C95A-44BA-A346-E202E98A1276}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA52900F-C95A-44BA-A346-E202E98A1276}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1E386A3-8CD6-4A7B-836D-11D8F69093EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1E386A3-8CD6-4A7B-836D-11D8F69093EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1E386A3-8CD6-4A7B-836D-11D8F69093EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1E386A3-8CD6-4A7B-836D-11D8F69093EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

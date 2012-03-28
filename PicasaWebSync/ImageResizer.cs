@@ -5,11 +5,14 @@ using System.Text;
 using System.IO;
 using System.Drawing.Imaging;
 using System.Drawing;
+using NLog;
 
 namespace PicasaWebSync
 {
     public static class ImageResizer
     {
+        private static Logger s_logger = LogManager.GetLogger("*");
+
         /// <summary>
         /// Returns a stream containing a resized image with original aspect ratio.
         /// </summary>
@@ -25,7 +28,6 @@ namespace PicasaWebSync
 
             try
             {
-                originalImage = new Bitmap(originalImageStream);
                 resizedImage = ResizeImage(ref originalImage, maxSizePixels, maxSizePixels);
 
                 resizedImageStream = new MemoryStream();
@@ -34,14 +36,24 @@ namespace PicasaWebSync
             finally
             {
                 //explicit cleanup b/c we are using GDI+
-                originalImage.Dispose();
-                resizedImage.Dispose();
-                originalImage = null;
-                resizedImage = null;
+                try
+                {
+                    originalImage.Dispose();
+                    resizedImage.Dispose();
+                    originalImage = null;
+                    resizedImage = null;
+                }
+                catch (Exception ex)
+                {
+                    s_logger.ErrorException("Exception on ImageResizer cleanup", ex);
+                }
             }
 
             //reset position so caller can read access from beginning of stream
-            resizedImageStream.Position = 0;
+            if (resizedImageStream != null)
+            {
+                resizedImageStream.Position = 0;
+            }
 
             return resizedImageStream;
         }
@@ -61,54 +73,62 @@ namespace PicasaWebSync
             //make sure resize is needed first
             if (originalImage.Width > maxWidthPixels || originalImage.Height > maxHeightPixels)
             {
-                // properly constrain proportions of the image
-                decimal imgRatio = (decimal)originalImage.Width / (decimal)originalImage.Height;
-                decimal maxRatio = (decimal)maxWidthPixels / (decimal)maxHeightPixels;
-
-                // first, try to scale image down to perfectly fit the max height and max width.
-                if (imgRatio == maxRatio)
+                try
                 {
-                    resizedImage = new Bitmap(originalImage, maxWidthPixels, maxHeightPixels);
-                }
-                else if (imgRatio < maxRatio)
-                {
-                    // adjust the width to match the maximum height.
-                    decimal newRatio = (decimal)maxHeightPixels / (decimal)originalImage.Height;
-                    int newWidth = (int)decimal.Round(newRatio * originalImage.Width);
+                    // properly constrain proportions of the image
+                    decimal imgRatio = (decimal)originalImage.Width / (decimal)originalImage.Height;
+                    decimal maxRatio = (decimal)maxWidthPixels / (decimal)maxHeightPixels;
 
-                    // if new image is a thumbnail (small) then use the GetThumbnailImage() method as it produces better thumbnail results.
-                    if (maxWidthPixels <= 150 && maxHeightPixels <= 150)
+                    // first, try to scale image down to perfectly fit the max height and max width.
+                    if (imgRatio == maxRatio)
                     {
-                        resizedImage = (Bitmap)originalImage.GetThumbnailImage(newWidth, maxHeightPixels, null, new IntPtr());
+                        resizedImage = new Bitmap(originalImage, maxWidthPixels, maxHeightPixels);
+                    }
+                    else if (imgRatio < maxRatio)
+                    {
+                        // adjust the width to match the maximum height.
+                        decimal newRatio = (decimal)maxHeightPixels / (decimal)originalImage.Height;
+                        int newWidth = (int)decimal.Round(newRatio * originalImage.Width);
+
+                        // if new image is a thumbnail (small) then use the GetThumbnailImage() method as it produces better thumbnail results.
+                        if (maxWidthPixels <= 150 && maxHeightPixels <= 150)
+                        {
+                            resizedImage = (Bitmap)originalImage.GetThumbnailImage(newWidth, maxHeightPixels, null, new IntPtr());
+                        }
+                        else
+                        {
+                            resizedImage = new Bitmap(originalImage, newWidth, maxHeightPixels);
+                        }
                     }
                     else
                     {
-                        resizedImage = new Bitmap(originalImage, newWidth, maxHeightPixels);
-                    }
-                }
-                else
-                {
-                    // adjust the height to match the maximum width.
-                    decimal newRatio = (decimal)maxWidthPixels / (decimal)originalImage.Width;
-                    int newHeight = (int)decimal.Round(newRatio * originalImage.Height);
+                        // adjust the height to match the maximum width.
+                        decimal newRatio = (decimal)maxWidthPixels / (decimal)originalImage.Width;
+                        int newHeight = (int)decimal.Round(newRatio * originalImage.Height);
 
-                    // if new image is a thumbnail (small) then use the GetThumbnailImage() method as it produces better thumbnail results.
-                    if (maxWidthPixels <= 150 && maxHeightPixels <= 150)
-                    {
-                        resizedImage = (Bitmap)originalImage.GetThumbnailImage(maxWidthPixels, newHeight, null, new IntPtr());
+                        // if new image is a thumbnail (small) then use the GetThumbnailImage() method as it produces better thumbnail results.
+                        if (maxWidthPixels <= 150 && maxHeightPixels <= 150)
+                        {
+                            resizedImage = (Bitmap)originalImage.GetThumbnailImage(maxWidthPixels, newHeight, null, new IntPtr());
+                        }
+                        else
+                        {
+                            resizedImage = new Bitmap(originalImage, maxWidthPixels, newHeight);
+                        }
                     }
-                    else
+
+                    // Copy JPEG Exif properties
+                    if (originalImage.RawFormat == ImageFormat.Jpeg)
                     {
-                        resizedImage = new Bitmap(originalImage, maxWidthPixels, newHeight);
+                        foreach (PropertyItem originalItem in originalImage.PropertyItems)
+                            resizedImage.SetPropertyItem(originalItem);
                     }
                 }
-                
-                // Copy JPEG Exif properties
-    			if (originalImage.RawFormat == ImageFormat.Jpeg)
-				{
-					foreach (PropertyItem originalItem in originalImage.PropertyItems)
-						resizedImage.SetPropertyItem (originalItem);
-				}
+                catch (Exception ex)
+                {
+                    s_logger.ErrorException("Error when resizing image", ex);
+                    throw;
+                }
             }
             else
             {

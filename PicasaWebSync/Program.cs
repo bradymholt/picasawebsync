@@ -12,11 +12,14 @@ using System.IO;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
+using NLog;
 
 namespace PicasaWebSync
 {
     class Program
     {
+        private static Logger s_logger = LogManager.GetLogger("*");
+
         static void Main(string[] args)
         {
             string commandLineArgs = string.Join(" ", args);
@@ -43,7 +46,7 @@ namespace PicasaWebSync
             }
             else
             {
-                Console.WriteLine("[Initializing]");
+                s_logger.Info("[Initializing]");
                 ServicePointManager.ServerCertificateValidationCallback = CertificateValidator;
                 PicasaAlbumSynchronizer uploader = new PicasaAlbumSynchronizer();
 
@@ -95,7 +98,7 @@ namespace PicasaWebSync
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(string.Format("Fatal Error Occured: {0}", ex.Message));
+                    s_logger.FatalException("Fatal Error Occured", ex);
                 }
             }
         }
