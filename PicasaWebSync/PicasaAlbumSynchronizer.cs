@@ -125,7 +125,6 @@ namespace PicasaWebSync
             WriteOutput(string.Format("    Files skipped: {0}", m_fileSkipCount.ToString()));
             WriteOutput(string.Format("   Errors occured: {0}", m_errorsCount.ToString()));
             WriteOutput(string.Format("     Elapsed time: {0}", (DateTime.Now - m_startTime).ToString()));
-            WriteOutput(string.Empty);
         }
 
         /// <summary>

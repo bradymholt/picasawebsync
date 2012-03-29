@@ -95,11 +95,15 @@ namespace PicasaWebSync
                     uploader.VerboseOutput = commandLineArgs.Contains("-v");
 
                     uploader.SyncFolder(args[0]);
+                   
                 }
                 catch (Exception ex)
                 {
                     s_logger.FatalException("Fatal Error Occured", ex);
                 }
+
+                //force flush! (http://nlog-project.org/2011/10/30/using-nlog-with-mono.html)
+                LogManager.Configuration = null;
             }
         }
 

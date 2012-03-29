@@ -93,7 +93,9 @@
     <Compile Include="VideoResizer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="hint_files\picasawebsync.exclude">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
