@@ -23,7 +23,7 @@ Installation and Usage
 
 To install and use picasawebsync:
 
-1. Obtain a build.  Either download the source of this repository and build the solution (src/PicasaWebSync.sln) or download the latest release from [Downloads](https://github.com/bradyholt/PicasaWebSync/downloads) page.
+1. Obtain a build.  Either download the source of this repository and build the solution (src/PicasaWebSync.sln) or download the latest release from [Downloads](http://picasawebsync.s3.amazonaws.com/list.html) page.
 2. Place the build output into a dedicated directory. 
 3. Modify the picasawebsync.exe.config file and update the values for the picasa.username and picasa.password settings to match your Google username and Password.
 4. Run the main executable **picasawebsync.exe** with appropriate command line paremters and options.  To see a list of available command line options run 'picasawebsync.exe -help'.
