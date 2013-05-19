@@ -11,7 +11,7 @@ namespace PicasaWebSync
     {
         public static string ResizeVideo(FileInfo sourceVideoFile, string resizeCommand)
         {
-            string resizedOutputVideoPath = sourceVideoFile.FullName.Replace(sourceVideoFile.Name, "picasawebsync_resized_" + sourceVideoFile.Name);
+            string resizedOutputVideoPath = sourceVideoFile.FullName.Replace(sourceVideoFile.Name, "picasawebsync_resized_" + Guid.NewGuid().ToByteArray() + "_" + sourceVideoFile.Name);
 
             string resizeCommandFull = string.Format(resizeCommand,
                 string.Concat("\"", sourceVideoFile.FullName, "\""),
