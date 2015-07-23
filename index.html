@@ -2,9 +2,9 @@
 <html>
 
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="PicasaWebSync : A command line tool to synchronize local photos and videos to online Picasa Web Albums" />
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="PicasaWebSync : A command line tool to synchronize local photos and videos to online Picasa Web Albums">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
@@ -20,6 +20,11 @@
 
           <h1 id="project_title">PicasaWebSync</h1>
           <h2 id="project_tagline">A command line tool to synchronize local photos and videos to online Picasa Web Albums</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/bradyholt/picasawebsync/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/bradyholt/picasawebsync/tarball/master">Download this project as a tar.gz file</a>
+            </section>
         </header>
     </div>
 
@@ -31,7 +36,7 @@ Author: Brady Holt (<a href="http://www.geekytidbits.com">http://www.geekytidbit
 License: The MIT License (MIT) (<a href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a>)</p>
 
 <h2>
-<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
 
 <p>PicasaWebSync is a command-line tool to synchronize local photos and videos to online Picasa Web Albums. It is flexible with a configuration file / run-time options and optionally resizes* photos before uploading them.</p>
 
@@ -46,17 +51,21 @@ License: The MIT License (MIT) (<a href="http://www.opensource.org/licenses/mit-
 <li>Removes photos/videos/albums from Picasa Web Albums that have been removed locally (can prevent this with -addOnly command line option)</li>
 <li>Updates files on Picasa which have been updated locally since the last time they were uploaded.</li>
 <li>Supports these file types: jpg, jpeg, gif, tiff, tif, png, bmp, avi, wmv, mpg, asf, mov, mp4</li>
-</ul><h2>
-<a name="installation-and-usage" class="anchor" href="#installation-and-usage"><span class="octicon octicon-link"></span></a>Installation and Usage</h2>
+</ul>
+
+<h2>
+<a id="installation-and-usage" class="anchor" href="#installation-and-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation and Usage</h2>
 
 <p>To install and use picasawebsync:</p>
 
 <ol>
-<li>Obtain a build.  Either download the source of this repository and build the solution (src/PicasaWebSync.sln) or download the latest release from the <a href="https://github.com/bradyholt/picasawebsync/releases">Releases</a> page.</li>
+<li>Obtain a build.  Either download the source of this repository and build the solution (src/PicasaWebSync.sln) or download the latest release from here: <a href="https://s3.amazonaws.com/brady.holt/PicasaWebSync_Latest.zip">https://s3.amazonaws.com/brady.holt/PicasaWebSync_Latest.zip</a>.</li>
 <li>Place the build output into a dedicated directory. </li>
 <li>Modify the picasawebsync.exe.config file and update the values for the picasa.username and picasa.password settings to match your Google username and Password.</li>
 <li>Run the main executable <strong>picasawebsync.exe</strong> with appropriate command line paremters and options.  To see a list of available command line options run 'picasawebsync.exe -help'.</li>
-</ol><p><strong>Usage</strong>  </p>
+</ol>
+
+<p><strong>Usage</strong>  </p>
 
 <pre><code>    picasawebsync.exe folderPath [options]
 </code></pre>
@@ -78,15 +87,17 @@ License: The MIT License (MIT) (<a href="http://www.opensource.org/licenses/mit-
 </code></pre>
 
 <h2>
-<a name="repository-directories" class="anchor" href="#repository-directories"><span class="octicon octicon-link"></span></a>Repository Directories</h2>
+<a id="repository-directories" class="anchor" href="#repository-directories" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repository Directories</h2>
 
 <ul>
 <li>
 <strong>src</strong> - The source solution/project for picasawebsync.</li>
 <li>
 <strong>lib</strong> - Contains Google Data API libraries used by picasawebsync.  The files in this folder are referenced by the source project file in /src.  This folder can be generally ignored unless you are building the source.</li>
-</ul><h2>
-<a name="video-resizing" class="anchor" href="#video-resizing"><span class="octicon octicon-link"></span></a>Video Resizing</h2>
+</ul>
+
+<h2>
+<a id="video-resizing" class="anchor" href="#video-resizing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Video Resizing</h2>
 
 <p>By default, video resizing is disabled (key="video.resize" value="false" in picasawebsync.exe.config) but to enable it you should 
 install a command-line utility that can handle video resizing and specify the command-line in the video.resize.command config value in
@@ -95,13 +106,13 @@ video.resize.command setting contains the path to the ffmpeg executable or your 
 resizes so that PicasaWebSync can locate it at runtime.</p>
 
 <h2>
-<a name="hint-files" class="anchor" href="#hint-files"><span class="octicon octicon-link"></span></a>Hint Files</h2>
+<a id="hint-files" class="anchor" href="#hint-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hint Files</h2>
 
 <p>Hint files can be placed in local folders which will instruct PicasaWebSync to mark an album with Public / Private access or exclude
 the folder entirely from being uploaded.  Refer to the /hint_files for sample files.  The hint files do not have to have any contents.</p>
 
 <h2>
-<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
 
 <p><strong>Windows</strong><br>
 .NET Framework 3.5 (Windows 7, Windows Vista, Windows Server 2008, Windows XP, Windows Server 2003)</p>
@@ -115,7 +126,7 @@ Mono version supporting .NET Framework 3.5</p>
     <div id="footer_wrap" class="outer">
       <footer class="inner">
         <p class="copyright">PicasaWebSync maintained by <a href="https://github.com/bradyholt">bradyholt</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
 
