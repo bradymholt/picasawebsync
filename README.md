@@ -2,11 +2,11 @@ PicasaWebSync
 ===============
 PicasaWebSync is a command line tool to resize and upload pictures and videos into Picasa Web Albums.  
 
-##NOTE##
-PicasaWebSync uses ClientLogin to authenticate to the Google Photos API. Per Google: "ClientLogin has been officially deprecated since April 20, 2012 and is now no longer available. Requests to ClientLogin will fail with a HTTP 404 response. We encourage you to migrate to OAuth 2.0 as soon as possible."  Until an update is made to support OAuth 2.0 PicasaWebSync will not work.
-
 Author: Brady Holt (http://www.geekytidbits.com)  
 License: The MIT License (MIT) (http://www.opensource.org/licenses/mit-license.php)
+
+##NOTE##
+PicasaWebSync uses ClientLogin to authenticate to the Google Photos API. Per Google: "ClientLogin has been officially deprecated since April 20, 2012 and is now no longer available. Requests to ClientLogin will fail with a HTTP 404 response. We encourage you to migrate to OAuth 2.0 as soon as possible."  Until an update is made to support OAuth 2.0 PicasaWebSync will not work.
 
 Overview
 ---
